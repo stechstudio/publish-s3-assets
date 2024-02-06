@@ -1,0 +1,29 @@
+{
+    "name": "stechstudio/publish-s3-assets",
+    "description": "A simple way to publish assets directly to S3, in CI or elsewhere",
+    "type": "library",
+    "require": {
+        "illuminate/console": "^10.43",
+        "aws/aws-sdk-php": "^3.298",
+        "illuminate/support": "^10.43"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Stechstudio\\PublishS3Assets\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "V13Axel",
+            "email": "alex@stechstudios.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Stechstudio\\PublishS3Assets\\ServiceProvider"
+            ]
+        }
+    }
+}
