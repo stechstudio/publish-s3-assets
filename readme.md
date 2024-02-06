@@ -23,6 +23,16 @@ php artisan assets:publish public/build/assets,public/vendor,public/css/filament
 
 That will publish only what's found in those folders, recursively.
 
+### ... to rename those folders in s3?
+
+First, ask yourself: Do you _really_ want to? If you just want to change `public/build/assets` to `build/assets`, see `--strip-public` below. 
+
+Otherwise...
+
+```
+php artisan assets:publish some/original/path:its/new/path
+```
+
 ### ... to remove `public` from the beginning of each asset?
 
 ```
