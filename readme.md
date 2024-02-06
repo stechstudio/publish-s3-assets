@@ -2,17 +2,18 @@
 
 Publishing your assets to S3 has never been easier![^1]
 
-Three steps:
+Four steps:
 
-1. Set your desired bucket URL as your `ASSET_URL`
-2. Add `ASSET_AWS_BUCKET` to your .env, pointed at the bucket you want to publish your assets to.
-3. Run `php artisan assets:publish`.
+1. `composer require stechstudio/publish-s3-assets`
+2. Set your desired bucket URL as your `ASSET_URL`
+3. Add `ASSET_AWS_DEFAULT_REGION` (defaults to `AWS_DEFAULT_REGION`) and `ASSET_AWS_BUCKET` to your .env, pointed at the bucket you want to publish your assets to.
+4. Run `php artisan assets:publish`.
 
 If you just wanted to publish everything in `public`, you're done!
 
 ## But what if I want...
 
-### To publish specific folders?
+### ... to publish specific folders?
 
 Pass them as a comma-separated list to `assets:publish`, like so:
 
@@ -22,13 +23,20 @@ php artisan assets:publish public/build/assets,public/vendor,public/css/filament
 
 That will publish only what's found in those folders, recursively.
 
-### To remove `public` from the beginning of each asset?
+### ... to remove `public` from the beginning of each asset?
 
-Pass the `--strip-public` option to remove it from the paths. With that, `public/build/assets` locally becomes `build/assets` in your bucket, and so on.
+```
+php artisan assets:publish --strip-public
+```
 
-### To remove any files that don't exist?
+With that, `public/build/assets` locally becomes `build/assets` in your bucket, and so on.
 
-That's the `--clean` option. It gets all of your destinations (such as `public/build/assets`), then deletes them and their contents before uploading the new files.
+### ... to remove any files that don't exist?
 
+```
+php artisan assets:publish --clean
+```
 
-[^1]: Neither benchmarked nor proven.
+It gets all of your destinations (such as `public/build/assets`), then deletes them and their contents before uploading the new files.
+
+[^1]: Claim neither benchmarked nor proven, but we like it!
