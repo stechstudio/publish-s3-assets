@@ -35,7 +35,7 @@ class PublishS3AssetsCommand extends Command
             $this->getDestinations()
                 ->each(function ($destination) use ($disk) {
                     $this->info("Cleaning: $destination");
-                    collect($disk->allFiles($destination))->each(fn($file) => $disk->delete($file));
+                    collect($disk->allFiles($destination))->each(fn ($file) => $disk->delete($file));
                     $disk->deleteDirectory($destination);
                 });
         }
@@ -76,6 +76,10 @@ class PublishS3AssetsCommand extends Command
 
     private function getFiles($source, $destination)
     {
+        if (is_file(base_path($source))) {
+            return [$source => $destination];
+        }
+
         return collect(
             Storage::build([
                 'driver' => 'local',
@@ -103,4 +107,3 @@ class PublishS3AssetsCommand extends Command
         return $destination;
     }
 }
-

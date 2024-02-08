@@ -5,7 +5,8 @@
     "require": {
         "illuminate/console": "^10.43",
         "aws/aws-sdk-php": "^3.298",
-        "illuminate/support": "^10.43"
+        "illuminate/support": "^10.43",
+        "league/flysystem-aws-s3-v3": "^3.0"
     },
     "license": "MIT",
     "autoload": {
