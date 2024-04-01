@@ -3,9 +3,9 @@
     "description": "A simple way to publish assets directly to S3, in CI or elsewhere",
     "type": "library",
     "require": {
-        "illuminate/console": "^10.43",
+        "illuminate/console": "^10.43 || ^11.0",
         "aws/aws-sdk-php": "^3.298",
-        "illuminate/support": "^10.43",
+        "laravel/framework": "^10.43 || ^11.0",
         "league/flysystem-aws-s3-v3": "^3.0"
     },
     "license": "MIT",
